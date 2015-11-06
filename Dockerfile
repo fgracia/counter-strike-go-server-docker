@@ -1,9 +1,12 @@
 FROM fgracia/steamcmd
 
+ENV LOGIN anonymous
+ENV PASSWORD ""
+
 RUN mkdir -p /opt/csgo
 
 WORKDIR /opt/steamcmd/bin
-RUN ./steamcmd.sh +login exialanbdx Exialanbdx33 +force_install_dir /opt/csgo +app_update 740 validate +quit
+RUN ./steamcmd.sh +login $LOGIN $PASSWORD +force_install_dir /opt/csgo +app_update 740 validate +quit
 
 VOLUME ["/opt/csgo"]
 
